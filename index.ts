@@ -46,10 +46,74 @@ class Student extends Person {
   }
 }
 
-let Alim = new Student(3,"Алимхан", 18)
-Alim.introduce()
-Alim.talkAboutCourse()
 
 /*Переопределите метод `talkAboutCourse` в классе "Студент" так, чтобы он выводил следующую информацию: "Привет, меня зовут {имя}. Я студент {курс} курса."
 Создайте по одному экземпляру класса "Человек" и "Студент", затем вызовите метод `talkAboutCourse` для каждого из них. */
 
+const person1 = new Person("Алимхан", 18);
+const student1 = new Student(3, "Алимхан", 18);
+
+person1.introduce();
+student1.talkAboutCourse();
+
+/*Создайте класс `Animal`, который имеет следующие свойства:
+
+- `name` (строковое имя животного)
+- `age` (возраст животного в годах)
+- И методы:
+- `speak` (выводит сообщение в консоль "Unknown sound...").
+    
+
+Затем создайте класс `Dog`, который наследует от класса `Animal` и переопределяет метод `speak` так, чтобы он выводил сообщение "Woof, woof!". */
+
+class Animal {
+  name: string;
+  age: number;
+
+  constructor(name: string, age: number) {
+    this.name = name;
+    this.age = age;
+  }
+
+  speak(): void {
+    console.log("Unknown sound...");
+  }
+}
+
+class Dog extends Animal {
+  constructor(name: string, age: number) {
+    super(name, age);
+  }
+
+  speak(): void {
+    console.log("Woof, woof!");
+  }
+}
+
+let animal = new Animal("Barsik", 3);
+let dog = new Dog("neBarsik", 2);
+
+animal.speak();
+dog.speak(); 
+
+/*Дополните предыдущее задание, добавив класс Cat, который также наследует от класса Animal и переопределяет метод speak, чтобы он выводил сообщение "Meow, meow!".
+Создайте массив из различных объектов классов Dog и Cat и вызовите метод speak для каждого объекта в массиве. Обратите внимание на то, как этот метод работает для каждого класса. */
+
+class Cat extends Animal {
+  constructor(name: string, age: number) {
+    super(name, age);
+  }
+
+  speak(): void {
+    console.log("Meow, meow!");
+  }
+}
+
+const dog1 = new Dog("Лев", 3);
+const cat1 = new Cat("Рыжик", 4);
+
+const animals: Animal[] = [dog1, cat1];
+
+for (const animal of animals) {
+  animal.speak();
+}
